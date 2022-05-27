@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'ISOCT';
+    src: url('./ISOCT.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.isoct {
+    font-family: 'ISOCT';
+    font-weight: normal;
+    font-style: normal;
+}
+
+.sticky-offset {
+    border-top: 3;
+    border-color: white;
+    top: 40px;
+}
+.bg-dark2{
+     background-color: #242028;
+}
+
+.fss{
+  --bs-link-hover-color #0242028;
+}

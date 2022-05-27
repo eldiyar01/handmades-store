@@ -5,11 +5,51 @@
     <meta charset="UTF-8">
     <title>Heko</title>
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{% static 'default/styles.css' %}" rel="stylesheet" type="text/css" media="all" />
 </head>
-<body>
-<nav class="navbar bg-dark p-2">
-    <a class="nav-link active text-white" aria-current="page" href="#">Heko</a>
+<body class="">
+<nav class="navbar bg-dark p-2 fixed-top">
+    <a class="nav-link active text-white isoct fw-bold" aria-current="page" href="#">Heko</a>
     <a class="btn btn-sm btn-outline-light" aria-current="page" href="#">Shopping</a>
 </nav>
+<div></div>
+<img src="{% static 'default/bg.png' %}" class="w-100" alt="...">
+<ul class="nav bg-dark2 justify-content-center isoct fw-bold p-2 sticky-top sticky-offset">
+    <li class="nav-item">
+        <a class="nav-link active text-white" aria-current="page" href="#">HOME</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-white" href="#">CATEGORIES</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-white" href="#">ALL</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-white" href="#">ABOUT US</a>
+    </li>
+</ul>
+<h1 class="text-center isoct fw-bold mt-3 p-3">UNIQUE HANDMADE HOME DECORATIONS</h1>
+<h3 class="text-center isoct fw-bold p-2">Check it below</h3>
+<img src="{% static 'default/sl.png' %}" class="w-50 mx-auto d-block" alt="...">
+<div class="container pb-5 mb-5 ml-5">
+    <div class="row mb-5">
+    {% block content %}
+        {% for product in products %}
+        <div class="col-4 mt-5">
+            <div class="card rounded-0" style="width: 20rem;">
+              <img src="{{ product.images.first.image.url }}" class="card-img-top rounded-0" style="height:240px" alt="...">
+              <div class="card-body">
+                <p class="card-text">{{ product.description|slice:120 }} ...</p>
+              </div>
+            </div>
+        <div class="text-center mt-4" style="width: 20rem;">
+            <button type="button" class="btn btn-lg btn-outline-dark rounded-0">Check it</button>
+        </div>
+        </div>
+
+        {% endfor %}
+    {% endblock %}
+    </div>
+</div>
 </body>
 </html>
