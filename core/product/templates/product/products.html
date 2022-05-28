@@ -1,12 +1,17 @@
 {% extends 'home.html' %}
 
 {% block content %}
-        <div class="col-4">
-            <div class="card rounded-0" style="width: 18rem;">
-              <img src="{% static 'default/bg.png' %}" class="card-img-top rounded-0" alt="...">
+        {% for product in products %}
+        <div class="col-4 mt-5">
+            <div class="card rounded-0">
+              <img src="{{ product.images.first.image.url }}" class="card-img-top rounded-0" style="height:300px" alt="...">
               <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">{{ product.description|slice:120 }} ...</p>
               </div>
             </div>
+            <div class="text-center mt-4">
+                <a href="{{ product.get_absolute_url }}" class="btn btn-lg btn-outline-dark rounded-0">Check it</a>
+            </div>
         </div>
+        {% endfor %}
 {% endblock %}

@@ -1,9 +1,16 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Category(models.Model):
     title = models.CharField(max_length=100, blank=False)
     description = models.CharField(max_length=255, blank=True)
+
+    def get_absolute_url(self):
+        return reverse('product:category', kwargs={'pk': self.pk})
+
+    def __str__(self):
+        return self.title
 
 
 class Product(models.Model):
@@ -15,7 +22,16 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     featured = models.BooleanField(default=False)
 
+    def get_absolute_url(self):
+        return reverse('product:product', kwargs={'pk': self.pk})
+
+    def __str__(self):
+        return self.title
+
 
 class Gallery(models.Model):
     product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(upload_to='product_img', blank=True)
+
+    def __str__(self):
+        return self.product.title

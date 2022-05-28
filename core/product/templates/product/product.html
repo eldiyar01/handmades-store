@@ -1,0 +1,48 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block image %}
+{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+<div class="m-5"></div>
+<div class="col-5">
+    <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ product.images.first.image.url }}" class="d-block w-100" alt="...">
+            </div>
+            {% for product_img in product.images.all|slice:'1:' %}
+            <div class="carousel-item">
+                <img src="{{ product_img.image.url }}" class="d-block w-100" alt="...">
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+
+</div>
+<div class="col-7">
+    <strong>{{ product.title }}</strong>
+    <hr>
+    <p><strong>Price:</strong> ${{ product.price }}</p>
+    {% if product.available %}
+        <p class="text-success">Available</p>
+    {% else %}
+        <p class="text-danger">Unavailable</p>
+    {% endif %}
+    <strong>About this item:</strong>
+    <br>
+    {{ product.description }}
+    <hr>
+    <form action="" method="get">
+        <input hidden value="{{ product.pk }}" name="pk">
+        <button type="submit" class="btn btn-outline-success">Buy</button>
+    </form>
+</div>
+{% endblock %}
