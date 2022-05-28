@@ -104,6 +104,9 @@ USE_L10N = True
 USE_TZ = True
 
 AUTH_USER_MODEL = 'user.User'
+LOGIN_REDIRECT_URL = 'product:home'
+LOGOUT_REDIRECT_URL = 'product:home'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 
