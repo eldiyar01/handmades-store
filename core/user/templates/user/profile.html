@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block image %}
+{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row mt-5">
+        <div class="col-lg-4">
+            {% if user.avatar %}
+                <img class="img-fluid" src="{{ user.avatar.url }}" alt="">
+            {% else %}
+                <img class="img-fluid" src="{% static 'default/usr_img.png' %}" alt="">
+            {% endif %}
+        </div>
+        <div class="col-lg-8">
+            <p>Username: {{ user }}</p>
+            <p>First name: {{ user.first_name }}</p>
+            <p>Last name: {{ user.last_name }} </p>
+            <p>Phone number: {{ user.phone_number|slice:'5' }}*** </p>
+            <p>Address: {{ user.address|slice:'8' }}</p>
+            <p>Date joined: {{ user.date_joined }}</p>
+            <p>Email: {{ user.email|slice:'3' }}***</p>
+        </div>
+    </div>
+    <div class="text-center">
+        <a class="btn btn-outline-dark rounded-0" href="{% url 'user:change' %}">Change</a>
+    </div>
+</div>
+{% endblock %}

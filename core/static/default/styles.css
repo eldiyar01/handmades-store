@@ -24,3 +24,13 @@
 .fss{
   --bs-link-hover-color #0242028;
 }
+
+.profile-img{
+    height: 100px;
+    width: 100px;
+}
+
+.sm-profile{
+    height: 22px;
+    width: 22px;
+}
