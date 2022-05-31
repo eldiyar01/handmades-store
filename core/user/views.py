@@ -20,7 +20,6 @@ def change(request):
         if form.is_valid():
             form.save()
             img_obj = form.instance
-            print(img_obj)
             return render(request, 'user/profile.html', {'img_obj': img_obj })
     else:
         form = ChangeForm(instance=request.user)

@@ -1,0 +1,26 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block image %}
+{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+<div class="mt-5 text-center pt-5">
+    <hr>
+    <h3 class="isoct fw-bold"> {{category.title}} </h3>
+    <hr>
+</div>
+{% for product in category.products.all %}
+        <div class="col-4 mt-5">
+            <div class="card rounded-0">
+              <img src="{{ product.images.first.image.url }}" class="card-img-top rounded-0" style="height:300px" alt="...">
+              <div class="card-body">
+                <p class="card-text">{{ product.description|slice:120 }} ...</p>
+              </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="{{ product.get_absolute_url }}" class="btn btn-lg btn-outline-dark rounded-0">Check it</a>
+            </div>
+        </div>
+        {% endfor %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block image %}
+{% endblock %}
+{% block content %}
+        {% for category in categories %}
+            <div class="d-grid m-1">
+              <a class="btn btn-outline-dark rounded-0" href="{{ category.get_absolute_url }}">{{ category.title }}</a>
+            </div>
+        {% endfor %}
+{% endblock %}

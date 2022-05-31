@@ -34,3 +34,7 @@
     height: 22px;
     width: 22px;
 }
+
+.txt-sh {
+  text-shadow: 0.5px 0.5px rgb(0,0,0);
+}
