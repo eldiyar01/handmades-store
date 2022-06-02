@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product, Gallery
+from .models import *
 
 
 @admin.register(Category)
@@ -14,4 +14,9 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(Gallery)
 class GalleryAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Sells)
+class SellsAdmin(admin.ModelAdmin):
     pass

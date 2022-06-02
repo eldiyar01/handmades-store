@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import *
-from user.models import User
 
 
 def home(request):
@@ -19,9 +18,25 @@ def product(request, pk):
 
 
 def buy(request, pk):
-    user = User.objects.get(id=request.user.id)
+    user = request.user
     o_product = Product.objects.get(id=pk)
     return render(request, 'product/buy.html', {'product': o_product, 'user': user})
+
+
+def shipping(request):
+    if request.method == 'POST':
+        msg = 'Thanks! soon admins will write to you for details'
+        user = request.user
+        form = request.POST
+        product_n = form.get('p_title')
+        amount = int(form.get('amount'))
+        price = int(form.get('p_price'))
+        shipping_a = user.address
+        Sells.objects.create(product_n=product_n, amount=amount, total_p=amount*price,
+                             shipping_a=shipping_a, client_n=user, client_p=user.phone_number)
+    else:
+        return reverse('product:products')
+    return render(request, 'product/success.html', {'msg':msg})
 
 
 def categories(request):

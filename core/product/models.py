@@ -35,3 +35,15 @@ class Gallery(models.Model):
 
     def __str__(self):
         return self.product.title
+
+
+class Sells(models.Model):
+    product_n = models.CharField(max_length=100, blank=False)
+    amount = models.IntegerField(null=False, blank=False)
+    total_p = models.IntegerField(null=False, blank=False)
+    shipping_a = models.CharField(max_length=100, blank=False)
+    client_n = models.CharField(max_length=100, blank=False)
+    client_p = models.CharField(max_length=100, blank=False)
+
+    def __str__(self):
+        return self.product_n + ' ' +self.client_n

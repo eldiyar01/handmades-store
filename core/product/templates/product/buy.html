@@ -8,36 +8,36 @@
 <div class="container mt-5">
     <div class="row justify-content-md-center mt-5">
         <div class="col-6 border p-3">
-            <table class="table table-hover table-dark ">
-                <tbody>
-                <tr>
-                    <th scope="row">For:</th>
-                    <td>{{user}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Shipping address:</th>
-                    <td>{{user.address}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Product:</th>
-                    <td>{{product.title}}</td>
+            <form action="{% url 'product:shipping' %}" method="post">
+                <table class="table table-hover table-dark ">
+                    <tbody>
+                    <tr>
+                        <th scope="row">For:</th>
+                        <td>{{user}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Shipping address:</th>
+                        <td>{{user.address}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Product:</th>
+                        <td><input type="text" name="p_title" hidden value="{{product.title}}">{{product.title}}</td>
 
-                </tr>
-                <tr>
-                    <th scope="row">Price:</th>
-                    <td>{{product.price}}$</td>
-
-                </tr>
-                </tbody>
-            </table>
-            <hr>
-            <div>Amount:<input class="m-1 col-1" type="number"></div>
-            <div class="text-success">Total:
-                {% widthratio product.price 1 1 %}
-
-            </div>
+                    </tr>
+                    <tr>
+                        <th scope="row">Price:</th>
+                        <td><input type="number" name="p_price"  hidden value="{{product.price}}">{{product.price}}$</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <div>Amount:<input name="amount" class="m-1 col-1" type="number" value="1"></div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-sm btn-outline-success rounded-0" type="submit">BUY</button>
+                </div>
+                {% csrf_token %}
+            </form>
         </div>
-
     </div>
 </div>
 

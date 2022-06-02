@@ -6,15 +6,15 @@
     <title>Heko</title>
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
     <link href="{% static 'default/styles.css' %}" rel="stylesheet" type="text/css" media="all" />
-    <script src="{% static 'js/bootstrap.js' %}" ></script>
-    <script src="{% static 'js/bootstrap.bundle.js' %}" ></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
 </head>
 <body class="">
 <nav class="navbar bg-dark p-2 fixed-top">
     <a class="nav-link active text-white isoct fw-bold" aria-current="page" href="{% url 'product:home' %}">Heko</a>
     {% if user.is_authenticated and user.avatar %}
         <a class="profile" href="{% url 'user:profile' %}">
-            <img class="img-rounded sm-profile"  src="{{ user.avatar.url }}" alt="">
+            <img class="rounded-circle sm-profile"  src="{{ user.avatar.url }}" alt="">
         </a>
         <a class="btn btn-sm btn-outline-light rounded-0" aria-current="page" href="{% url 'user:sign-out' %}">Sign Out</a>
     {% elif user.is_authenticated %}
@@ -63,7 +63,7 @@
         <a class="nav-link text-white" href="{% url 'product:products' %}">ALL</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-white" href="#{% url 'product:about' %}">ABOUT US</a>
+        <a class="nav-link text-white" href="{% url 'product:about' %}">ABOUT US</a>
     </li>
 </ul>
 {% block head %}

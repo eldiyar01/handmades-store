@@ -9,3 +9,4 @@ class User(AbstractUser):
     phone_number = models.CharField(validators=[phone_regex], max_length=9, blank=True, unique=True)  # validators should be a list
     avatar = models.ImageField(upload_to='user_imgs', blank=True, null=True)
     purchases = models.IntegerField(default=0)
+

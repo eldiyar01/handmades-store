@@ -1,0 +1,29 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block image %}
+{% endblock %}
+{% block head %}
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-md-center mt-5">
+        <div class="col-6 border p-3 isoct">
+            {% if msg %}
+                <div class="card rounded-0 card border-dark">
+                    <div class="card-body text-center ">
+                        <h3 class="fw-bold">{{msg}}</h3>
+                    </div>
+                </div>
+            <div class="d-grid gap-2">
+                <a class="btn btn-outline-dark rounded-0 fw-bold mt-3" href="{% url 'product:products' %}">Continue</a>
+             </div>
+            {% else %}
+            <div class="d-grid gap-2">
+                <a class="btn btn-outline-dark rounded-0 fw-bold mt-3" href="{% url 'product:products' %}">All products</a>
+             </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

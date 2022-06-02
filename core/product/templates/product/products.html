@@ -13,7 +13,6 @@
                 <h4 class="fw-bold text-dark txt-sh">We made everything with love</h4>
                 <br>
                 {% if user.is_authenticated %}
-                <h4 class="fw-bold text-dark txt-sh">We made everything with love</h4>
                 <p class="fw-bold text-dark txt-sh"> Welcome! We hope you will be satisfied</p>
                 {% else %}
                 <a class="btn btn-sm btn-dark rounded-0 fw-bold" aria-current="page" href="{% url 'user:signup' %}">
@@ -27,12 +26,10 @@
         </div>
             <div class="carousel-item">
                 <img src="{% static 'default/carousel2.jpeg' %}" class="d-block w-100"  alt="...">
-                            <div class="carousel-caption d-none d-md-block isoct fw-bold">
+            <div class="carousel-caption d-none d-md-block isoct fw-bold">
                 <h4 class="fw-bold text-dark txt-sh">We made everything with love</h4>
-
                 <br>
                 {% if user.is_authenticated %}
-                <h4 class="fw-bold text-dark txt-sh">We made everything with love</h4>
                 <p class="fw-bold text-dark txt-sh"> Welcome! We hope you will be satisfied</p>
                 {% else %}
                 <a class="btn btn-sm btn-dark rounded-0 fw-bold" aria-current="page" href="{% url 'user:signup' %}">
