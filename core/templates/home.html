@@ -11,6 +11,7 @@
 </head>
 <body class="">
 <nav class="navbar bg-dark p-2 fixed-top">
+    <img class="rounded-circle sm-profile"  src="{% static 'default/logo.png' %}" alt="">
     <a class="nav-link active text-white isoct fw-bold" aria-current="page" href="{% url 'product:home' %}">Heko</a>
     {% if user.is_authenticated and user.avatar %}
         <a class="profile" href="{% url 'user:profile' %}">
@@ -96,4 +97,7 @@
     </div>
 </div>
 </body>
+<footer class="footer">
+  <p>&copy; Heko company 2021-2022</p>
+</footer>
 </html>
